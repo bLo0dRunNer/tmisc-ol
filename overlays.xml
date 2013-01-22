@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <layman>
     <overlay contact = "bloodrunnermf@hotmail.com"
-            name = "misc-apps-progs-tools"
+            name = "tmisc-ol"
             src = "git://github.com/bLo0dRunNer/tmisc-ol.git"
             type = "git"
             status = "unofficial">
