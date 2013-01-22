@@ -67,4 +67,6 @@ src_install() {
 pkg_postinst() {
         einfo "In order to properly work, ${PN} now needs a background daemon to be running."
         einfo "An rc script has been installed at /etc/init.d/${PN}d"
+
+	rc-update add teamviewerd default
 }
