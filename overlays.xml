@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<layman>
-    <overlay contact = "bloodrunnermf@hotmail.com"
-            name = "tmisc-ol"
-            src = "git://github.com/bLo0dRunNer/tmisc-ol.git"
-            type = "git"
-            status = "unofficial">
-        <link>http://github.com/bLo0dRunNer/tmisc-ol/</link>
-        <description>
-	Gentoo Overlay for misc Tools/Apps/Progs/Stuff, etc. ...
-        </description>
-    </overlay>
-</layman>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name>tmisc-ol</name>
+    <description>Gentoo Overlay for misc Tools/Apps/Progs/Stuff, etc. ...</description>
+    <homepage>https://github.com/bLo0dRunNer/tmisc-ol/</homepage>
+    <owner type="project">
+      <email>BloodrunnerMF at hotmail.com</email>
+      <name>bLo0dRunNer</name>
+    </owner>
+    <source type="git">git://github.com/bLo0dRunNer/tmisc-ol.git</source>
+    <feed>https://github.com/bLo0dRunNer/tmisc-ol/commits/master.atom</feed>
+  </repo>
+</repositories>
