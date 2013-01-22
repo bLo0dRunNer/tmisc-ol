@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<layman>
+    <overlay contact = "bloodrunnermf@hotmail.com"
+            name = "misc-apps-progs-tools"
+            src = "git://github.com/bLo0dRunNer/tmisc-ol.git"
+            type = "git"
+            status = "unofficial">
+        <link>https://github.com/bLo0dRunNer/tmisc-ol/</link>
+        <description>
+	Gentoo Overlay for misc Tools/Apps/Progs/Stuff, etc. ...
+        </description>
+    </overlay>
+</layman>
