@@ -5,7 +5,7 @@
             src = "git://github.com/bLo0dRunNer/tmisc-ol.git"
             type = "git"
             status = "unofficial">
-        <link>https://github.com/bLo0dRunNer/tmisc-ol/</link>
+        <link>http://github.com/bLo0dRunNer/tmisc-ol/</link>
         <description>
 	Gentoo Overlay for misc Tools/Apps/Progs/Stuff, etc. ...
         </description>
