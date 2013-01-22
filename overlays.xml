@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE repositories SYSTEM "repositories.dtd">
-<repositories xmlns="" version="1.0">
-  <repo quality="experimental" status="unofficial">
+<repositories version="1.0">
+  <repo priority="50" quality="experimental" status="unofficial">
     <name>tmisc-ol</name>
-    <description>Gentoo Overlay for misc Tools/Apps/Progs/Stuff, etc. ...</description>
+    <description>Gentoo User Overlay: Ebuilds/Tools/Apps/Progs/Stuff/Misc/etc</description>
     <homepage>https://github.com/bLo0dRunNer/tmisc-ol/</homepage>
-    <owner type="project">
-      <email>BloodrunnerMF at hotmail.com</email>
+    <owner>
+      <email>BloodrunnerMF@hotmail.com</email>
       <name>bLo0dRunNer</name>
     </owner>
     <source type="git">git://github.com/bLo0dRunNer/tmisc-ol.git</source>
