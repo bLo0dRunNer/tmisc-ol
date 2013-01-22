@@ -16,7 +16,7 @@ First run these two commands:
 Then add the following line to /etc/layman/layman.cfg :
 
     overlays  : http://www.gentoo.org/proj/en/overlays/repositories.xml
-		https://github.com/bLo0dRunNer/tmisc-ol/raw/master/overlays.xml?raw=true
+                https://github.com/bLo0dRunNer/tmisc-ol/raw/master/overlays.xml?raw=true
 
 After those steps:
 
