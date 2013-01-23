@@ -4,8 +4,8 @@
 Version=1.0
 Type=Application
 Terminal=false
-Icon[de_DE]=/opt/teamviewer/teamviewer.png
+Icon[de_DE]=/opt/teamviewer8/teamviewer.png
 Name[de_DE]=TeamViewer
 Name=TeamViewer
-Icon=/opt/teamviewer/teamviewer.png
+Icon=/opt/teamviewer8/teamviewer.png
 Exec=teamviewer
