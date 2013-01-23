@@ -1,6 +1,5 @@
-You can find some Ebuilds for Gentoo here.
-You should understand and know what you're doing.
-
+Within this Overlay you can find some Gentoo ebuilds/tools/apps/progs/stuff/misc/etc.
+You should know what you're doing.
 
 USAGE
 
