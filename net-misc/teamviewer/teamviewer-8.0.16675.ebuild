@@ -69,6 +69,11 @@ src_install() {
 pkg_postinst() {
         einfo "In order to properly work, ${PN} now needs a background daemon to be running."
         einfo "An rc script has been installed at /etc/init.d/${PN}d"
-	"${ROOT}"/etc/init.d/teamviewerd start
-	rc-update add teamviewerd default
+	einfo
+	echo "${ROOT}"/etc/init.d/teamviewerd start
+	einfo
+	einfo "You need to start the teamviewerd daemon to be able to start TeamViewer"
+	einfo "Start the daemon by executing: /etc/init.d/teamviewerd start"
+	einfo "If you want the daemon to be started automatically upon boot simply add"
+	einfo "the teamviewerd daemon to the default runlevel: rc-update add teamviewerd default"
 }
