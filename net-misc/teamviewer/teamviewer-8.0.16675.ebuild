@@ -45,8 +45,6 @@ src_install() {
         doins opt/teamviewer8/tv_bin/wine/drive_c/TeamViewer/*
 	insinto /opt/teamviewer/
 	doins opt/teamviewer8/tv_bin/desktop/*
-	insinto /usr/share/pixmaps/
-	doins opt/teamviewer8/tv_bin/desktop/teamviewer.png
 
         insinto /usr/sbin
         doins opt/teamviewer8/tv_bin/teamviewerd
@@ -69,9 +67,9 @@ src_install() {
 pkg_postinst() {
         einfo "In order to properly work, ${PN} now needs a background daemon to be running."
         einfo "An rc script has been installed at /etc/init.d/${PN}d"
-	einfo
-	echo "${ROOT}"/etc/init.d/teamviewerd start
-	einfo
+
+	"${ROOT}"/etc/init.d/teamviewerd start
+
 	einfo "You need to start the teamviewerd daemon to be able to start TeamViewer"
 	einfo "Start the daemon by executing: /etc/init.d/teamviewerd start"
 	einfo "If you want the daemon to be started automatically upon boot simply add"
