@@ -33,45 +33,53 @@ src_unpack() {
 
 
 pkg_setup() {
+	elog
         elog "This ebuild installs the TeamViewer binary and libraries and relies on"
         elog "Gentoo's wine package to run the actual program."
         elog
         elog "If you encounter any problems, consider running TeamViewer with the"
         elog "bundled wine package manually."
+	elog
 }
 
 src_install() {
-        insinto /opt/teamviewer/
+        insinto /opt/teamviewer8/
         doins opt/teamviewer8/tv_bin/wine/drive_c/TeamViewer/*
-	insinto /opt/teamviewer/
-	doins opt/teamviewer8/tv_bin/desktop/*
+
+	insinto /opt/temviewer8/
+	doins opt/teamviewer8/tv_bin/desktop/teamviewer.png
+
+	insinto /usr/share/applications/
+	doins "${FILESDIR}"/teamviewer.desktop
 
         insinto /usr/sbin
         doins opt/teamviewer8/tv_bin/teamviewerd
         fperms +x /usr/sbin/teamviewerd
 
         echo "#!/bin/bash" > teamviewer || die
-        echo "export WINEDLLPATH=/opt/teamviewer" >> teamviewer || die
-        echo "/usr/bin/wine /opt/teamviewer/TeamViewer.exe" >> teamviewer || die
+        echo "export WINEDLLPATH=/opt/teamviewer8" >> teamviewer || die
+        echo "/usr/bin/wine /opt/teamviewer8/TeamViewer.exe" >> teamviewer || die
         insinto /usr/bin
         dobin teamviewer
 
         dodoc opt/teamviewer8/linux_FAQ_{EN,DE}.txt  || die
         dodoc opt/teamviewer8/CopyRights_{EN,DE}.txt || die
 
-        make_desktop_entry ${PN} TeamViewer ${PN}
+        make_desktop_entry "${PN}" TeamViewer /opt/teamviewer8/teamviewer.png Network
 
         newinitd "${FILESDIR}/teamviewerd.rc" teamviewerd
 }
 
 pkg_postinst() {
+	einfo
         einfo "In order to properly work, ${PN} now needs a background daemon to be running."
         einfo "An rc script has been installed at /etc/init.d/${PN}d"
-
+	einfo
 	"${ROOT}"/etc/init.d/teamviewerd start
-
+	einfo
 	einfo "You need to start the teamviewerd daemon to be able to start TeamViewer"
 	einfo "Start the daemon by executing: /etc/init.d/teamviewerd start"
 	einfo "If you want the daemon to be started automatically upon boot simply add"
 	einfo "the teamviewerd daemon to the default runlevel: rc-update add teamviewerd default"
+	einfo
 }
