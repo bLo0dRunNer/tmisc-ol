@@ -22,9 +22,7 @@ IUSE=""
 
 RESTRICT="mirror strip"
 
-RDEPEND="
-        app-emulation/wine
-"
+RDEPEND="app-emulation/wine"
 
 
 src_unpack() {
@@ -45,6 +43,10 @@ pkg_setup() {
 src_install() {
         insinto /opt/teamviewer/
         doins opt/teamviewer8/tv_bin/wine/drive_c/TeamViewer/*
+	insinto /opt/teamviewer/
+	doins opt/teamviewer8/tv_bin/desktop/*
+	insinto /usr/share/pixmaps/
+	doins opt/teamviewer8/tv_bin/desktop/teamviewer.png
 
         insinto /usr/sbin
         doins opt/teamviewer8/tv_bin/teamviewerd
