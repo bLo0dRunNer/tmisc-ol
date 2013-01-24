@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Name=Matlab
+Type=Application
+Terminal=true
+Comment=Mthworks Matlab Statistic Calculation Software
+Exec=matlab
+TryExec=matlab
+Icon=/usr/share/pixmaps/matlab-icon-128.png
+Categories=Development;
