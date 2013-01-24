@@ -49,8 +49,8 @@ src_install() {
 	insinto /opt/teamviewer8/
 	doins opt/teamviewer8/tv_bin/desktop/teamviewer.png
 
-	insinto /usr/share/applications/
-	doins "${FILESDIR}"/teamviewer.desktop
+#	insinto /usr/share/applications/
+#	doins "${FILESDIR}"/teamviewer.desktop
 
         insinto /usr/sbin
         doins opt/teamviewer8/tv_bin/teamviewerd
