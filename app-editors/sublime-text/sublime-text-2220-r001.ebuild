@@ -43,5 +43,5 @@ src_install() {
 	doins "PackageSetup.py"
 	doexe "sublime_text"
 	dosym "/opt/${PN}/sublime_text" /usr/bin/subl
-	make_desktop_entry "subl" "Sublime Text Editor" /opt/${PN}/${PN}-icon-128.png "Applications;Development"
+	make_desktop_entry "subl" "Sublime Text Editor" /opt/${PN}/${PN}-icon-128.png "Development"
 }
