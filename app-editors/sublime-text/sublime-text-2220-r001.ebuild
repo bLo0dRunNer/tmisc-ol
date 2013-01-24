@@ -26,9 +26,15 @@ RDEPEND="media-libs/libpng:1.2
 	>=x11-libs/gtk+-2.24.8-r1:2"
 
 src_install() {
-	insinto /opt/${PN}
-	doins "${FILESDIR}"/sublime-text-icon-128.png
-	doins "${FILESDIR}"/sublime-text-icon-256.png
+	insinto /opt/${PN}/
+	doins "${FILESDIR}"/${PN}-icon-128.png
+
+	insinto /opt/${PN}/
+	doins "${FILESDIR}"/${PN}-icon-256.png
+
+#        insinto /usr/share/applications/
+#        doins "${FILESDIR}"/${PN}.desktop
+
 	into /opt/${PN}
 	exeinto /opt/${PN}
 	doins -r "lib"
@@ -37,6 +43,5 @@ src_install() {
 	doins "PackageSetup.py"
 	doexe "sublime_text"
 	dosym "/opt/${PN}/sublime_text" /usr/bin/subl
-	make_desktop_entry "subl" "Sublime Text Editor" "/opt/sublime-text/sublime-text-icon-128.png" 
-"Application;TextEditor"
+	make_desktop_entry "subl" "Sublime Text Editor" /opt/${PN}/${PN}-icon-128.png "Application;TextEditor"
 }
