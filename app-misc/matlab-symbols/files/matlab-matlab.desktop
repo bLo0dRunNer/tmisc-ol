@@ -4,6 +4,5 @@ Type=Application
 Terminal=true
 Comment=Mathworks Matlab Statistic Calculation Software
 Exec=matlab
-TryExec=matlab
 Icon=/usr/share/pixmaps/matlab-icon-128.png
 Categories=Development;
