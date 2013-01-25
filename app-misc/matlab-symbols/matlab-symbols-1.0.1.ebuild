@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
 inherit eutils
 
@@ -25,9 +25,10 @@ src_install() {
 	MATPATH="$(locate -n 1 MATLAB/)"
         insinto /usr/share/pixmaps/
         doins "${FILESDIR}"/matlab-icon-128.png
+	dosym "${MATPATH}"/bin/matlab /usr/bin/matlab
 #	insinto /usr/share/applications/
 #	doins "${FILESDIR}"/matlab-matlab.desktop
-        make_desktop_entry "${MATPATH}"/bin/matlab "MatLab" /usr/share/pixmaps/matlab-icon-128.png "Development"
+        make_desktop_entry matlab "MatLab" /usr/share/pixmaps/matlab-icon-128.png "Development"
 }
 
 pkg_postinst() {
