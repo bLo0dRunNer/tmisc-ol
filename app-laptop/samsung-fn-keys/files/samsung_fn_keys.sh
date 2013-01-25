@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo ""
 echo "-> Piping Force Key Release:"
 echo "-> KeyEventCodes: 130,131,132,134,136,137,179,247,249 to: /sys/devices/platform/i8042/serio0/force_release"
 echo 130,131,132,134,136,137,179,247,249 > /sys/devices/platform/i8042/serio0/force_release
