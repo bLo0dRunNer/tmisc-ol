@@ -39,6 +39,7 @@ pkg_postinst() {
 	einfo
 	einfo "Tested and working for: Samsung R505 Aura"
 	einfo
+	rc-update del samsung-FNkeysd
 	"${ROOT}"/etc/init.d/samsungFNkeysd stop
 	"${ROOT}"/etc/init.d/samsungFNkeysd start
 	einfo
