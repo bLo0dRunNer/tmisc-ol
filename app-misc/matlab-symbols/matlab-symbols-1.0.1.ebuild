@@ -1,12 +1,13 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI="4"
 
+# needed by make_desktop_entry
 inherit eutils
 
-S="${WORKDIR}/matlab-symbols"
+#S="${WORKDIR}/matlab-symbols"
 
 DESCRIPTION="Installs Matlab Icon, launcher symbols need to be manually modified"
 HOMEPAGE="http://www.mathworks.com"
@@ -21,6 +22,11 @@ IUSE=""
 RESTRICT="mirror strip"
 
 RDEPEND="sys-apps/mlocate"
+
+src_prepare() {
+  cd "/tmp/"
+  S="$(pwd)"
+}
 
 src_install() {
 	MATPATH="$(locate -n 1 MATLAB/)"
