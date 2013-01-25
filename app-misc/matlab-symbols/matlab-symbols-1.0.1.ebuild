@@ -7,10 +7,7 @@ EAPI="4"
 # needed by make_desktop_entry
 inherit eutils
 
-MY_PN="Sublime%20Text%202%20Build"
-MY_P="${MY_PN}%20${PV}"
-S="${WORKDIR}/Sublime Text 2"
-#S="${WORKDIR}/matlab-symbols"
+S="${WORKDIR}/matlab-symbols"
 
 DESCRIPTION="Installs Matlab Icon, launcher symbols need to be manually modified"
 HOMEPAGE="http://www.mathworks.com"
@@ -30,6 +27,10 @@ src_install() {
 	MATPATH="$(locate -n 1 MATLAB/)"
         insinto /usr/share/pixmaps/
         doins "${FILESDIR}"/matlab-icon-128.png
+
+	into "${MATPATH}"/bin/
+	exeinto "${MATPATH}"/bin/
+	doexe "matlab"
 	dosym "${MATPATH}"/bin/matlab /usr/bin/matlab
 #	insinto /usr/share/applications/
 #	doins "${FILESDIR}"/matlab-matlab.desktop
