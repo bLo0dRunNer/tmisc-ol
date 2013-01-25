@@ -6,9 +6,10 @@ EAPI=4
 
 inherit eutils
 
+S="${WORKDIR}/matlab-symbols"
+
 DESCRIPTION="Installs Matlab Icon, launcher symbols need to be manually modified"
 HOMEPAGE="http://www.mathworks.com"
-
 
 SRC_URI=""
 
@@ -28,7 +29,7 @@ src_install() {
 	dosym "${MATPATH}"/bin/matlab /usr/bin/matlab
 #	insinto /usr/share/applications/
 #	doins "${FILESDIR}"/matlab-matlab.desktop
-        make_desktop_entry matlab "MatLab" /usr/share/pixmaps/matlab-icon-128.png "Development"
+        make_desktop_entry "matlab" "MatLab" /usr/share/pixmaps/matlab-icon-128.png "Development"
 }
 
 pkg_postinst() {
