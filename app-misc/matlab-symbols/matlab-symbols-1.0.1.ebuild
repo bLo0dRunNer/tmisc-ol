@@ -22,20 +22,17 @@ RESTRICT="mirror strip"
 RDEPEND="sys-apps/mlocate"
 
 src_install() {
+	MATPATH="${locate -n 1 MATLAB/}"
         insinto /usr/share/pixmaps/
         doins "${FILESDIR}"/matlab-icon-128.png
-	insinto /usr/share/applications/
-	doins "${FILESDIR}"/matlab-matlab.desktop
-#        make_desktop_entry "${MATPATH}"/matlab "MatLab" /usr/share/pixmaps/matlab-icon-128.png "Development"
+#	insinto /usr/share/applications/
+#	doins "${FILESDIR}"/matlab-matlab.desktop
+        make_desktop_entry "${MATPATH}"/bin/matlab "MatLab" /usr/share/pixmaps/matlab-icon-128.png "Development"
 }
 
 pkg_postinst() {
 	einfo
 	einfo "This ebuild installs the default Matlab Icon into"
 	einfo "/usr/share/pixmaps/"
-	einfo "To use this Icon you have to edit your Matlab launcher Icon"
-	einfo
-	einfo "A matlab-matlab.desktop file is created in /usr/share/applications/"
-	einfo "You have to modify the execution command of this file to make it usable"
 	einfo
 }
