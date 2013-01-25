@@ -7,6 +7,9 @@ EAPI="4"
 # needed by make_desktop_entry
 inherit eutils
 
+MY_PN="Sublime%20Text%202%20Build"
+MY_P="${MY_PN}%20${PV}"
+S="${WORKDIR}/Sublime Text 2"
 #S="${WORKDIR}/matlab-symbols"
 
 DESCRIPTION="Installs Matlab Icon, launcher symbols need to be manually modified"
@@ -23,11 +26,6 @@ RESTRICT="mirror strip"
 
 RDEPEND="sys-apps/mlocate"
 
-src_prepare() {
-  cd "/tmp/"
-  S="$(pwd)"
-}
-
 src_install() {
 	MATPATH="$(locate -n 1 MATLAB/)"
         insinto /usr/share/pixmaps/
@@ -38,9 +36,9 @@ src_install() {
         make_desktop_entry "matlab" "MatLab" /usr/share/pixmaps/matlab-icon-128.png "Development"
 }
 
-pkg_postinst() {
-	einfo
-	einfo "This ebuild installs the default Matlab Icon into"
-	einfo "/usr/share/pixmaps/"
-	einfo
-}
+#pkg_postinst() {
+#	einfo
+#	einfo "This ebuild installs the default Matlab Icon into"
+#	einfo "/usr/share/pixmaps/"
+#	einfo
+#}
