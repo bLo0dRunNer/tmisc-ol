@@ -7,7 +7,7 @@ EAPI="3"
 # needed by make_desktop_entry
 inherit eutils
 
-DESCRIPTION="Installs Matlab Icon, launcher symbols need to be manually modified"
+DESCRIPTION="Mathworks Matlab Launcher Icon"
 HOMEPAGE="http://www.mathworks.com"
 
 SRC_URI=""
