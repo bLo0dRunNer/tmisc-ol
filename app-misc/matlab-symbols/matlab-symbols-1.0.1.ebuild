@@ -7,8 +7,6 @@ EAPI="3"
 # needed by make_desktop_entry
 inherit eutils
 
-S="${WORKDIR}/matlab-symbols"
-
 DESCRIPTION="Installs Matlab Icon, launcher symbols need to be manually modified"
 HOMEPAGE="http://www.mathworks.com"
 
@@ -23,23 +21,32 @@ RESTRICT="mirror strip"
 
 RDEPEND="sys-apps/mlocate"
 
-src_install() {
+src_prepare() {
 	MATPATH="$(locate -n 1 MATLAB/)"
+}
+
+src_install() {
+
         insinto /usr/share/pixmaps/
         doins "${FILESDIR}"/matlab-icon-128.png
 
-	into "${MATPATH}"/bin/
-	exeinto "${MATPATH}"/bin/
-	doexe "matlab"
+#	into "${MATPATH}"/bin/
+#	exeinto "${MATPATH}"/bin/
+#	doexe "matlab"
+
 	dosym "${MATPATH}"/bin/matlab /usr/bin/matlab
+	fperms +x /usr/bin/matlab
+
 #	insinto /usr/share/applications/
 #	doins "${FILESDIR}"/matlab-matlab.desktop
+
         make_desktop_entry "matlab" "MatLab" /usr/share/pixmaps/matlab-icon-128.png "Development"
+
 }
 
-#pkg_postinst() {
-#	einfo
-#	einfo "This ebuild installs the default Matlab Icon into"
-#	einfo "/usr/share/pixmaps/"
-#	einfo
-#}
+pkg_postinst() {
+	einfo
+	einfo "This ebuild installs the default Matlab Icon into"
+	einfo "/usr/share/pixmaps/"
+	einfo
+}
