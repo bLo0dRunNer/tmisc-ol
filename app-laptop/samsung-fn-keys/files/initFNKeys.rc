@@ -1,0 +1,21 @@
+#!/sbin/runscript
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+depend() {
+	need keymaps
+	use logger
+	before xdm
+}
+
+start() {
+	ebegin "Starting FN-Key setting"
+	start-stop-daemon --start --exec /usr/sbin/samsung_fn_keys.sh \
+	eend $?
+}
+stop() {
+	ebegin "Stopping FN-Key setting"
+	start-stop-daemon --stop --exec /usr/sbin/samsung_fn_keys.sh \
+        eend $?
+} 
