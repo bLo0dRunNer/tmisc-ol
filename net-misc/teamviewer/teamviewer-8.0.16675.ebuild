@@ -75,6 +75,7 @@ pkg_postinst() {
         einfo "In order to properly work, ${PN} now needs a background daemon to be running."
         einfo "An rc script has been installed at /etc/init.d/${PN}d"
 	einfo
+	"${ROOT}"/etc/init.d/teamviewerd stop
 	"${ROOT}"/etc/init.d/teamviewerd start
 	einfo
 	einfo "You need to start the teamviewerd daemon to be able to start TeamViewer"
