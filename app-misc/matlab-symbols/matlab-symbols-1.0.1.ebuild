@@ -22,7 +22,7 @@ RESTRICT="mirror strip"
 RDEPEND="sys-apps/mlocate"
 
 src_install() {
-	MATPATH="${locate -n 1 MATLAB/}"
+	MATPATH="$(locate -n 1 MATLAB/)"
         insinto /usr/share/pixmaps/
         doins "${FILESDIR}"/matlab-icon-128.png
 #	insinto /usr/share/applications/
