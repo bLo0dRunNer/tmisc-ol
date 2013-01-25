@@ -35,7 +35,7 @@ src_install() {
 #	doexe "matlab"
 
 	dosym "${MATPATH}"/bin/matlab /usr/bin/matlab
-	fperms +x /usr/bin/matlab
+#	fperms +x /usr/bin/matlab
 
 #	insinto /usr/share/applications/
 #	doins "${FILESDIR}"/matlab-matlab.desktop
