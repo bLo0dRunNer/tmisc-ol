@@ -40,7 +40,7 @@ src_install() {
 #	insinto /usr/share/applications/
 #	doins "${FILESDIR}"/matlab-matlab.desktop
 
-        make_desktop_entry "matlab" "MatLab" /usr/share/pixmaps/matlab-icon-128.png "Development"
+        make_desktop_entry "matlab" "MatLab" /usr/share/pixmaps/matlab-icon-128.png "Development" "Terminal=true"
 
 }
 
