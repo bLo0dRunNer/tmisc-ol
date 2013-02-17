@@ -17,7 +17,7 @@ SRC_URI="
 
 LICENSE="TeamViewer"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="mask ~amd64 ~x86"
 IUSE=""
 
 RESTRICT="mirror strip"
