@@ -19,9 +19,7 @@ IUSE=""
 
 RESTRICT="mirror strip"
 
-RDEPEND="
-net-wireless/rfkill
-x11-misc/xbindkeys"
+RDEPEND=""
 
 src_install() {
         insinto /usr/sbin/
