@@ -14,8 +14,3 @@ start() {
 	start-stop-daemon --start --exec /usr/sbin/samsung_fn_keys.sh \
 	eend $?
 }
-stop() {
-	ebegin "Stopping FN-Key setting"
-	start-stop-daemon --stop --exec /usr/sbin/samsung_fn_keys.sh \
-        eend $?
-} 
