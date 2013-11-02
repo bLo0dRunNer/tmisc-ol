@@ -27,15 +27,14 @@ src_install() {
    doins "${FILESDIR}"/*.patch
 
    echo "#!/bin/bash" > apply_patches || die
-   echo "echo 'patch -b --verbose /etc/grub.d/00_header < ./00_header.patch'" > apply_patches || die
-   echo "echo 'patch -b --verbose /etc/grub.d/10_linux < ./10_linux.patch'" >> apply_patches || die
-   echo "echo 'patch -b --verbose /etc/default/grub < ./grub.patch'" >> apply_patches || die
-   echo "echo 'patch -b --verbose /usr/sbin/grub2-mkconfig < ./grub2-mkconfig.patch'" >> apply_patches || die
+   echo "echo 'patch -b --verbose /etc/grub.d/00_header < /tmp/grub2patches/00_header.patch'" > apply_patches || die
+   echo "echo 'patch -b --verbose /etc/grub.d/10_linux < /tmp/grub2patches/10_linux.patch'" >> apply_patches || die
+   echo "echo 'patch -b --verbose /etc/default/grub < /tmp/grub2patches/grub.patch'" >> apply_patches || die
+   echo "echo 'patch -b --verbose /usr/sbin/grub2-mkconfig < /tmp/grub2patches/grub2-mkconfig.patch'" >> apply_patches || die
 
    fperms +x apply_patches
-   doins apply_patches
+   exec apply_patches
 
-   exec /tmp/grub2patches/apply_patches
 }
 
 pkg_postinst() {
