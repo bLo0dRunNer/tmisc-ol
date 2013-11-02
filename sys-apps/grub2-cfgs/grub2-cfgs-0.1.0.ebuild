@@ -27,6 +27,7 @@ src_install() {
 
  insinto "${TMPPATH}"
  doins "${FILESDIR}"/*.patch
+ fperms -v +x "${TMPPATH}"/*.patch
 # doins "${FILESDIR}"/00_header.patch
 # doins "${FILESDIR}"/10_linux.patch
 # doins "${FILESDIR}"/grub.patch
