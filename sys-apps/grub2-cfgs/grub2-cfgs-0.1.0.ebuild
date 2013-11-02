@@ -38,13 +38,6 @@ src_install() {
    fperms +x "${TMPPATH}"/applypatches
    ."${TMPPATH}"/applypatches
 
-#   dobin applypatches
-#   ./applypatches
-#   fperms +x applygrubpatches
-#   ./applygrubpatches
-
-#   rm -rf /var/tmp/portage/sys-apps/
-
 }
 
 pkg_postinst() {
