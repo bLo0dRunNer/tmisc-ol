@@ -25,9 +25,9 @@ TMPPATH="/tmp/grub2patches"
 
 src_install() {
 
- insinto "${TMPPATH}"
- doins "${FILESDIR}"/*.patch
- fperms -v +x "${TMPPATH}"/*.patch
+# insinto "${TMPPATH}"
+# doins "${FILESDIR}"/*.patch
+# fperms -v +x "${TMPPATH}"/*.patch
 # doins "${FILESDIR}"/00_header.patch
 # doins "${FILESDIR}"/10_linux.patch
 # doins "${FILESDIR}"/grub.patch
@@ -48,10 +48,10 @@ src_install() {
 
    elog "creating script file"
    echo "#!/bin/bash" > applygpatches || die
-   echo "patch -b --verbose /etc/grub.d/00_header < ${TMPPATH}/00_header.patch" >> applygpatches || die
-   echo "patch -b --verbose /etc/grub.d/10_linux < ${TMPPATH}/10_linux.patch" >> applygpatches || die
-   echo "patch -b --verbose /etc/default/grub < ${TMPPATH}/grub.patch" >> applygpatches || die
-   echo "patch -b --verbose /usr/sbin/grub2-mkconfig < ${TMPPATH}/grub2-mkconfig.patch" >> applygpatches || die
+   echo "patch -b --verbose /etc/grub.d/00_header < ${FILESDIR}/00_header.patch" >> applygpatches || die
+   echo "patch -b --verbose /etc/grub.d/10_linux < ${FILESDIR}/10_linux.patch" >> applygpatches || die
+   echo "patch -b --verbose /etc/default/grub < ${FILESDIR}/grub.patch" >> applygpatches || die
+   echo "patch -b --verbose /usr/sbin/grub2-mkconfig < ${FILESDIR}/grub2-mkconfig.patch" >> applygpatches || die
 
 #   insinto "${TMPPATH}"
 #   doins "${FILESDIR}"/applypatches
