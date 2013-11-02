@@ -48,10 +48,10 @@ src_install() {
 
    elog "creating script file"
    echo "#!/bin/bash" > applygpatches || die
-   echo "patch -b --verbose /etc/grub.d/00_header < ${FILESDIR}/00_header.patch" >> applygpatches || die
-   echo "patch -b --verbose /etc/grub.d/10_linux < ${FILESDIR}/10_linux.patch" >> applygpatches || die
-   echo "patch -b --verbose /etc/default/grub < ${FILESDIR}/grub.patch" >> applygpatches || die
-   echo "patch -b --verbose /usr/sbin/grub2-mkconfig < ${FILESDIR}/grub2-mkconfig.patch" >> applygpatches || die
+   echo "patch --verbose /etc/grub.d/00_header < ${FILESDIR}/00_header.patch" >> applygpatches || die
+   echo "patch --verbose /etc/grub.d/10_linux < ${FILESDIR}/10_linux.patch" >> applygpatches || die
+   echo "patch --verbose /etc/default/grub < ${FILESDIR}/grub.patch" >> applygpatches || die
+   echo "patch --verbose /usr/sbin/grub2-mkconfig < ${FILESDIR}/grub2-mkconfig.patch" >> applygpatches || die
 
 #   insinto "${TMPPATH}"
 #   doins "${FILESDIR}"/applypatches
@@ -63,6 +63,8 @@ src_install() {
 #   elog "executing patch script"
 #   ./tmp/grub2patches/applypatches
 #   ."${TMPPATH}"/applypatches
+
+#   rm -rf /tmp/grub2patches/
 
 }
 
