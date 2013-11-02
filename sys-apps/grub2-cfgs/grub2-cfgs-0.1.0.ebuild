@@ -25,12 +25,24 @@ TMPPATH="/tmp/grub2patches"
 
 src_install() {
 
-   elog "setting install directory"
-   insinto "${TMPPATH}"
+ insinto "${TMPPATH}"
+ doins "${FILESDIR}"/00_header.patch
+ doins "${FILESDIR}"/10_linux.patch
+ doins "${FILESDIR}"/grub.patch
+ doins "${FILESDIR}"/grub2-mkconfig.patch
+
+ patch -b --verbose "/etc/grub.d/00_header" < "${TMPPATH}"/00_header.patch
+ patch -b --verbose "/etc/grub.d/10_linux" < "${TMPPATH}"/10_linux.patch
+ patch -b --verbose "/etc/default/grub" < "${TMPPATH}"/grub.patch
+ patch -b --verbose "/usr/sbin/grub2-mkconfig" < "${TMPPATH}"/grub2-mkconfig.patch
+
+
+#   elog "setting install directory"
+#   insinto "${TMPPATH}"
 #   insinto ${D}
 
-   elog "installing files"
-   doins "${FILESDIR}"/*.patch
+#   elog "installing files"
+#   doins "${FILESDIR}"/*.patch
 
 #   elog "creating script file"
 #   echo "#!/bin/bash" > "${TMPPATH}"/applypatches || die
@@ -39,21 +51,21 @@ src_install() {
 #   echo "patch -b --verbose /etc/default/grub < ./grub.patch" >> "${TMPPATH}"/applypatches || die
 #   echo "patch -b --verbose /usr/sbin/grub2-mkconfig < ./grub2-mkconfig.patch" >> "${TMPPATH}"/applypatches || die
 
-   insinto "${TMPPATH}"
-   doins "${FILESDIR}"/applypatches
+#   insinto "${TMPPATH}"
+#   doins "${FILESDIR}"/applypatches
 
-   elog "changing permission"
-   fperms -v +x /tmp/grub2patches/applypatches
+#   elog "changing permission"
+#   fperms -v +x /tmp/grub2patches/applypatches
 #   fperms -v +x "${TMPPATH}"/applypatches
-   elog "executing patch script"
-   ./tmp/grub2patches/applypatches
+#   elog "executing patch script"
+#   ./tmp/grub2patches/applypatches
 #   ."${TMPPATH}"/applypatches
 
 }
 
 pkg_postinst() {
 
-   rm -rf /tmp/grub2patches/
+#   rm -rf /tmp/grub2patches/
 
 	einfo
         einfo "Two additional variables should be patched into /etc/default/grub:"
