@@ -35,8 +35,8 @@ src_install() {
 #   echo "patch -b --verbose /etc/default/grub < ./grub.patch" >> "${TMPPATH}"/applypatches || die
 #   echo "patch -b --verbose /usr/sbin/grub2-mkconfig < ./grub2-mkconfig.patch" >> "${TMPPATH}"/applypatches || die
 
-   fperms +x "${TMPPATH}"/applypatches
-   ."${TMPPATH}"/applypatches
+   fperms -v +x "${TMPPATH}"/applypatches
+   exec "${TMPPATH}"/applypatches
 
 }
 
