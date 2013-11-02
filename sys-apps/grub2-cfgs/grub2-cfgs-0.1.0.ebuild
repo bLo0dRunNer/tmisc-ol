@@ -22,6 +22,7 @@ RESTRICT="mirror strip"
 RDEPEND="sys-boot/grub:2"
 
 src_install() {
+
    insinto /tmp/grub2patches/
    doins "${FILESDIR}"/*.patch
 
@@ -30,8 +31,10 @@ src_install() {
    echo "echo 'patch -b --verbose /etc/grub.d/10_linux < ./10_linux.patch'" >> apply_patches || die
    echo "echo 'patch -b --verbose /etc/default/grub < ./grub.patch'" >> apply_patches || die
    echo "echo 'patch -b --verbose /usr/sbin/grub2-mkconfig < ./grub2-mkconfig.patch'" >> apply_patches || die
-   insinto /tmp/grub2patches/
-   fperms +x /tmp/grub2patches/apply_patches
+
+   fperms +x apply_patches
+   doins apply_patches
+
    exec /tmp/grub2patches/apply_patches
 }
 
