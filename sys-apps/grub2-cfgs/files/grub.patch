@@ -1,0 +1,29 @@
+--- /home/blood/Projects/Testing/diffs/etc_default_grub	2013-11-02 15:35:06.417616717 +0100
++++ /home/blood/Projects/Testing/diffs/etc_default_grub.new	2013-11-02 16:08:04.207534001 +0100
+@@ -16,11 +16,18 @@
+ GRUB_HIDDEN_TIMEOUT_QUIET=true
+ GRUB_TIMEOUT=10
+ 
++# Uncomment to disable the autodetection from grub and set a specific language
++# Warning: Setting an invalid language abbreviation may break your grub
++# GRUB_CUSTOM_LANG="en"
++
++# Set to true or false to enable/disable the automatic submenu structure
++GRUB_ENABLE_SUBMENU=false
++
+ # Append parameters to the linux kernel command line
+-# GRUB_CMDLINE_LINUX=""
++GRUB_CMDLINE_LINUX=""
+ 
+ # Append parameters to the linux kernel command line for non-recovery entries
+-#GRUB_CMDLINE_LINUX_DEFAULT=""
++GRUB_CMDLINE_LINUX_DEFAULT=""
+ 
+ # Uncomment to disable graphical terminal (grub-pc only)
+ #GRUB_TERMINAL=console
+@@ -43,4 +50,4 @@
+ #GRUB_DISABLE_LINUX_UUID=true
+ 
+ # Uncomment to disable generation of recovery mode menu entries
+-#GRUB_DISABLE_RECOVERY=true
++GRUB_DISABLE_RECOVERY=true

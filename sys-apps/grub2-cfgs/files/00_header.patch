@@ -1,0 +1,13 @@
+--- /home/blood/Projects/Testing/diffs/etc_grubd_00_header	2013-11-02 15:39:09.865606536 +0100
++++ /home/blood/Projects/Testing/diffs/etc_grubd_00_header.new	2013-11-02 16:13:13.664521058 +0100
+@@ -20,7 +20,9 @@
+ prefix="/usr"
+ exec_prefix="${prefix}"
+ datarootdir="${prefix}/share"
+-grub_lang=`echo $LANG | cut -d . -f 1`
++
++if [ "x${GRUB_CUSTOM_LANG}" = "x" ]; then grub_lang=`echo $LANG | cut -d . -f 1` ; fi
++if [ "x${GRUB_CUSTOM_LANG}" != "x" ]; then grub_lang="$GRUB_CUSTOM_LANG" ; fi
+ 
+ export TEXTDOMAIN=grub
+ export TEXTDOMAINDIR="${datarootdir}/locale"

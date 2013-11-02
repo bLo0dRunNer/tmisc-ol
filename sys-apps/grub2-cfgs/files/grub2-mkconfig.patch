@@ -1,0 +1,11 @@
+--- /home/blood/Projects/Testing/diffs/usr_sbin_grub2-mkconfig	2013-11-02 15:40:44.729602568 +0100
++++ /home/blood/Projects/Testing/diffs/usr_sbin_grub2-mkconfig.new	2013-11-02 16:00:28.037553079 +0100
+@@ -183,6 +183,8 @@
+ 
+ # These are optional, user-defined variables.
+ export GRUB_DEFAULT \
++  GRUB_CUSTOM_LANG \
++  GRUB_ENABLE_SUBMENU \
+   GRUB_HIDDEN_TIMEOUT \
+   GRUB_HIDDEN_TIMEOUT_QUIET \
+   GRUB_TIMEOUT \
