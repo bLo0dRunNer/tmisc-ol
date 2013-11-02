@@ -32,6 +32,8 @@ src_install() {
    echo "echo 'patch -b --verbose /etc/default/grub < /tmp/grub2patches/grub.patch'" >> apply_patches || die
    echo "echo 'patch -b --verbose /usr/sbin/grub2-mkconfig < /tmp/grub2patches/grub2-mkconfig.patch'" >> apply_patches || die
 
+   insinto /tmp/grub2patches/
+   dobin apply_patches
    fperms +x apply_patches
    exec apply_patches
 
