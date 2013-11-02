@@ -1,6 +1,6 @@
 Within this Overlay you can find some Gentoo ebuilds/tools/apps/progs/stuff/misc/etc.
 
-You should know what you're doing.
+Notice: You should rather know what you're doing.
 
 -USAGE-
 
