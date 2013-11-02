@@ -1,5 +1,5 @@
---- /home/blood/Projects/Testing/diffs/etc_default_grub	2013-11-02 15:35:06.417616717 +0100
-+++ /home/blood/Projects/Testing/diffs/etc_default_grub.new	2013-11-02 16:08:04.207534001 +0100
+--- /etc/default/grub	2013-11-02 15:35:06.417616717 +0100
++++ /tmp/grub.patch	2013-11-02 16:08:04.207534001 +0100
 @@ -16,11 +16,18 @@
  GRUB_HIDDEN_TIMEOUT_QUIET=true
  GRUB_TIMEOUT=10
