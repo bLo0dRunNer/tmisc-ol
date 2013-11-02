@@ -21,15 +21,16 @@ RESTRICT="mirror strip"
 
 RDEPEND="sys-boot/grub:2"
 
-TMPPATH=/tmp/grub2patches
+TMPPATH="/tmp/grub2patches"
 
 src_install() {
 
    elog "setting install directory"
    insinto "${TMPPATH}"
+#   insinto ${D}
 
    elog "installing files"
-   doins "${FILESDIR}"/*
+   doins "${FILESDIR}"/*.patch
 
 #   elog "creating script file"
 #   echo "#!/bin/bash" > "${TMPPATH}"/applypatches || die
@@ -38,11 +39,14 @@ src_install() {
 #   echo "patch -b --verbose /etc/default/grub < ./grub.patch" >> "${TMPPATH}"/applypatches || die
 #   echo "patch -b --verbose /usr/sbin/grub2-mkconfig < ./grub2-mkconfig.patch" >> "${TMPPATH}"/applypatches || die
 
+   insinto "${TMPPATH}"
+   doins "${FILESDIR}"/applypatches
+
    elog "changing permission"
-   fperms -v +x ./applypatches
+   fperms -v +x /tmp/grub2patches/applypatches
 #   fperms -v +x "${TMPPATH}"/applypatches
    elog "executing patch script"
-   ./applypatches
+   ./tmp/grub2patches/applypatches
 #   ."${TMPPATH}"/applypatches
 
 }
