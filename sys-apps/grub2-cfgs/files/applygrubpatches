@@ -1,8 +1,0 @@
-#!/bin/bash
-
-cd /tmp/grub2patches/
-
-patch -b --verbose /etc/grub.d/00_header < ./00_header.patch
-patch -b --verbose /etc/grub.d/10_linux < ./10_linux.patch
-patch -b --verbose /etc/default/grub < ./grub.patch
-patch -b --verbose /usr/sbin/grub2-mkconfig < ./grub2-mkconfig.patch
