@@ -24,7 +24,7 @@ RDEPEND="sys-boot/grub:2"
 src_install() {
 
    insinto /tmp/grub2patches
-   doins "${FILESDIR}"/*
+   doins "${FILESDIR}"/*.patch
 
 #   echo "#!/bin/bash" > applypatches || die
 #   echo "patch -b --verbose /etc/grub.d/00_header < ./00_header.patch" > applypatches || die
