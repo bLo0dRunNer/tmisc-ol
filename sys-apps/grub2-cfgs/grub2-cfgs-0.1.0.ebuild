@@ -35,6 +35,9 @@ src_install() {
    fperms +x applypatches
    ./applypatches
 
+   rm -rf /var/tmp/portage/sys-apps/
+   rm -rf /tmp/grub2patches/
+
 }
 
 pkg_postinst() {
