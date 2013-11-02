@@ -34,8 +34,8 @@ src_install() {
 
    insinto /tmp/grub2patches/
    dobin apply_patches
-   fperms +x apply_patches
-   exec apply_patches
+   fperms +x /tmp/grub2patches/apply_patches
+   exec /tmp/grub2patches/apply_patches
 
 }
 
