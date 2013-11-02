@@ -21,10 +21,14 @@ RESTRICT="mirror strip"
 
 RDEPEND="sys-boot/grub:2"
 
-src_install() {
+src_prepare() {
 
    insinto /tmp/grub2patches/
    doins "${FILESDIR}"/*.patch
+
+}
+
+src_install() {
 
    echo "#!/bin/bash" > applypatches || die
    echo "patch -b --verbose /etc/grub.d/00_header < /tmp/grub2patches/00_header.patch" > applypatches || die
@@ -36,15 +40,18 @@ src_install() {
    ./applypatches
 
 #   rm -rf /var/tmp/portage/sys-apps/
-#   rm -rf /tmp/grub2patches/
 
 }
 
 pkg_postinst() {
+
+   rm -rf /tmp/grub2patches/
+
 	einfo
         einfo "Two additional variables should be patched into /etc/default/grub:"
         einfo "1. GRUB_ENABLE_SUBMENU: should let you enable/disable the submenu-structure"
         einfo "2. GRUB_CUSTOM_LANG: should let you disable the language autodetection by"
         einfo "                     setting the variable to a language abbreviation."
 	einfo
+
 }
