@@ -28,7 +28,7 @@ src_install() {
    elog "setting install directory"
    insinto "${TMPPATH}"
 
-   elog "install files"
+   elog "installing files"
    doins "${FILESDIR}"/*
 
 #   elog "creating script file"
@@ -39,7 +39,8 @@ src_install() {
 #   echo "patch -b --verbose /usr/sbin/grub2-mkconfig < ./grub2-mkconfig.patch" >> "${TMPPATH}"/applypatches || die
 
    elog "changing permission"
-   fperms -v +x "${TMPPATH}"/applypatches
+   fperms -v +x ./applypatches
+#   fperms -v +x "${TMPPATH}"/applypatches
    elog "executing patch script"
    ./applypatches
 #   ."${TMPPATH}"/applypatches
